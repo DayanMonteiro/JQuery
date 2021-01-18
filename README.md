@@ -1,6 +1,6 @@
 # JQuery
 
-!{jquery}(https://github.com/DayanMonteiro/JQuery/blob/main/icon.jpg)
+![jquery](https://github.com/DayanMonteiro/JQuery/blob/main/icon.jpg)
 
 Lançada em 2006, por John Resig, jQuery, segundo definição consta em seu site, trata-se de uma rápida, pequena e rica em features biblioteca JavaScript.
 
