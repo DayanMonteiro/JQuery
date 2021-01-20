@@ -115,6 +115,40 @@
 					$('#resultadoDiv3').html('saiu')
 					console.log('Div Interna (saiu)')
 				})
+
+				// eventos do teclado
+				/* 
+				$('#teclado').keydown(() => {
+					$('#resultadoTecla').html('Tecla pressionada')
+					console.log('Tecla pressionada')
+				}) */
+				// limitando teclas que usuário pode digitar, permitindo apenas numeros
+				 $('#teclado').keydown((e) => {
+				// 97 98 99 100 101 102 103 104 - esses são os codigos dos numeros de 1 a 9
+					if(e.keyCode < 97 || e.keyCode > 104) {
+						$(e)
+					}
+				}) 
+
+				
+
+				/*
+				$('#teclado').keydown((e) => {
+					$('#resultadoTecla').html('Tecla pressionada')
+					if(e.keyCode == 13) {
+						let txt = $(e.target).val()
+						$('#resultadoTecla').html(txt)
+						$(e.target).val('')
+					}
+					console.log(e.keyCode) // keyCode exibe o numero que representa a tecla, dessa forma podemos programar uma tecla para realizar um determinado evento
+				}) */
+
+				/*
+				$('#teclado').keyup(() => {
+					$('#resultadoTecla').html('Tecla liberada')
+					console.log('Tecla liberada')
+				}) 
+				*/
 				
 			})
 		</script>
@@ -187,8 +221,8 @@
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>
-			<input type="text" />
-			<span>Resultado do evento sobre o input</span>
+			<input id="teclado" type="text" />
+			<span id="resultadoTecla">Resultado do evento sobre o input</span>
 			<hr />
 
 			<h3>Formulário</h3>
