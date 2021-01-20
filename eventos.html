@@ -31,6 +31,37 @@
 					$('#div2').css('background-color', '#00b894')
 				})
 
+
+				// eventos de mouse
+				$('#btn1').mousedown(() => {
+					$('#div3').css('background-color', '#55efc4')
+				})
+
+				$('#btn1').mouseup(() => {
+					$('#div3').css('background-color', '#7d5fff')
+				})
+
+				// a junção dos 2 eventos acima se resume ao click
+				$('#btn1').click(() => {
+					$('#div3').css('background-color', '#7d5fff')
+				})
+
+				// click duplo
+				$('#btn2').dblclick(() => {
+					$('#div3').css('background-color', '#18dcff')
+				})
+
+				//movimento de mouse
+				$('#div3').mousemove((e) => {
+					console.log(e.offsetX, e.offsetY) // retorna as cordenadas do mouse nos eixos x e y
+					$('#resultadoDiv').html('X: ' + e.offsetX + ' / Y: ' + e.offsetY ) // exite o eixo na pagina
+
+				}) 
+
+
+
+
+
 			})
 		</script>
 	</head>
@@ -85,10 +116,10 @@
 			<hr />
 
 			<h3>Mouse</h3>
-			<button type="button">Clique aqui</button>
-			<button type="button">Clique aqui 2x</button>
-			<div style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
-			<span>Resultado do evento sobre a div</span>
+			<button id="btn1" type="button">Clique aqui</button>
+			<button id="btn2" type="button">Clique aqui 2x</button>
+			<div id="div3" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div</span><span id="resultadoDiv" ></span>
 			<hr />
 
 			<h3>Teclado</h3>
