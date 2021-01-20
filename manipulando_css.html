@@ -4,9 +4,53 @@
 		<meta charset="UTF-8">
 		<title>jQuery</title>
 
+        <!--atribuindo classes -->
+		<style>  	
+			.campo {
+				border: none;
+				padding: 10px;
+			}
+
+			.padrao {
+				background-color: #dfe6e9;
+			}
+
+			.erro {
+				background-color: #d63031;
+			}
+
+
+		</style>
+
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script>
+	 $(document).ready(()=> {
+		 		// estilizando css
+		 		$('body').css('background-color', '##dfe6e9', 'padding', '15px')
+				$('#topo').css('background-color', '#dfe6e9').css('margin', '0px').css('padding', '10px 20px 10px 20px')
+				// passando por objeto literal varios atributos
+				$('#contato').css({'background': '#b2bec3', 'margin': '0px', 'padding': '5px 15px 5px 15px'})
+				$('h1').css({'color': '#2d3436', 'margin': '0px'})
 
+				// em style criei a classe campo, agora irei atribuir ela
+				$('input').addClass('campo padrao')
+				$('textarea').addClass('campo erro')
+
+				// hasClass - verifica a existência de uma classe no elemento html
+				$('textarea').hasClass('padrao') // retorna false
+				$('textarea').hasClass('erro') // retorna true
+				// com o retorno podemos usar o valor booleano para testes, ex:
+				if($('textarea').hasClass('erro')) {alert('Temos um campor com erro')}
+
+				// removendo classes
+				$('textarea').removeClass('erro') // removeo o fundo vermelho e a mensagem de erro
+
+				// retornei o fundo padrão cinza para o textarea
+				$('textarea').addClass('padrao')
+
+
+
+       })
 		</script>
 	</head>
 
@@ -17,7 +61,7 @@
 		</div>
 
 		<div>
-			<h3>Contato</h3>
+			<h3 id="contato">Contato</h3>
 			<hr />
 
 			<p>Nome:</p>
