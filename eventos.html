@@ -17,6 +17,10 @@
 				height: 80px;
 				background-color: #74b9ff;
 			}
+
+			.inputFocado {
+				background-color: #e84118;
+			}
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -123,10 +127,12 @@
 					console.log('Tecla pressionada')
 				}) */
 				// limitando teclas que usuário pode digitar, permitindo apenas numeros
-				 $('#teclado').keydown((e) => {
+				 $('#teclado').keyup((e) => {
 				// 97 98 99 100 101 102 103 104 - esses são os codigos dos numeros de 1 a 9
 					if(e.keyCode < 97 || e.keyCode > 104) {
-						$(e)
+					let txt = $(e.target).val()
+					txt = txt.slice(0, -1)
+					$(e.target).val(txt)
 					}
 				}) 
 
@@ -149,7 +155,43 @@
 					console.log('Tecla liberada')
 				}) 
 				*/
-				
+				// focus
+				$('#nome').focus((e) => {
+					console.log('Esse elemento HTML recebeu foco (nome)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#email').focus((e) => {
+					console.log('Esse elemento HTML recebeu foco (email)')
+					$(e.target).addClass('inputFocado')
+				})
+				// blur
+				$('#nome').blur((e) => {
+					console.log('Esse elemento HTML perdeu o foco (nome)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#email').blur((e) => {
+					console.log('Esse elemento HTML perdeu o foco (email)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				// change
+				$('#opcao').change((e) => {
+					console.log($(e.target).val())
+				})
+
+				// submit
+				$('#formulario').submit((e) => {
+					e.preventDefault()
+					console.log('Formulário enviado')
+				})
+
+				// preventDefault com esse exemplo eu não permito que o link envie o usuário para o site
+				$('a').click(e => {
+					e.preventDefault()
+				})
+
 			})
 		</script>
 	</head>
@@ -226,22 +268,24 @@
 			<hr />
 
 			<h3>Formulário</h3>
-			<form>
+			<form id="formulario">
 				<span>Nome:</span>
-				<input type="text" />
+				<input type="text" id="nome" />
 
 				<span>E-mail:</span>
-				<input type="text" />
+				<input type="text" id="email"/>
 
 				<span>Motivo do contato:</span>
-				<select>
+				<select id="opcao" >
 					<option value="">-- Selecione --</option>
 					<option value="duvida">Dúvida</option>
 					<option value="sugestao">Sugestão</option>
 				</select>
 				
-				<button type="button">Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
+			<br />
+			<a href="https://www.google.com.br/">Google</a>
 		</div>
 	</body>
 
