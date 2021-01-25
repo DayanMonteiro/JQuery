@@ -156,25 +156,18 @@
 				}) 
 				*/
 				// focus
-				$('#nome').focus((e) => {
-					console.log('Esse elemento HTML recebeu foco (nome)')
+				$('#nome, #email' ).focus((e) => {
+					//console.log('Esse elemento HTML recebeu foco')
 					$(e.target).addClass('inputFocado')
 				})
 
-				$('#email').focus((e) => {
-					console.log('Esse elemento HTML recebeu foco (email)')
-					$(e.target).addClass('inputFocado')
-				})
+				
 				// blur
-				$('#nome').blur((e) => {
-					console.log('Esse elemento HTML perdeu o foco (nome)')
+				$('#nome, #email').blur((e) => {
+					//console.log('Esse elemento HTML perdeu o foco (nome)')
 					$(e.target).removeClass('inputFocado')
 				})
 
-				$('#email').blur((e) => {
-					console.log('Esse elemento HTML perdeu o foco (email)')
-					$(e.target).removeClass('inputFocado')
-				})
 
 				// change
 				$('#opcao').change((e) => {
