@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			button {
+				margin-bottom: 5px;
+				width: 100px;
+			}
+
+			.div {
+				width: 100px;
+				height: 100px;
+			}
+
+			.div1 {
+				background-color: red
+			}
+
+			.div2 {
+				background-color: green
+			}
+
+			.div3 {
+				background-color: blue
+			}
+
+			.grupo {
+				padding: 25px;
+				float: left
+			}
+		</style>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(() => {
+				/* efeito hide oculta o elemento
+				$('#div1').hide()
+				// efeito show faz o elemento aparecer
+  				$('#div1').show()
+				// posso usar tempo nas trasições com slow medio fast
+				 $('#div1').hide('slow')
+				 // efeito toggle faz as a função show e hide, alem de poder usar slow - medio - fast também é possivel usar milisegundos como no exemplo que levara 2 segundos de transição
+				 $('#div1').toggle(2000) */
+
+				$('#btn1').on('click', () => {
+					$('#div1').toggle('slow')
+				}) 
+
+
+				// fez a ocultação
+				$('#div2').fadeOut('slow')
+				// retornou o elento
+				$('#div2').fadeIn('slow')
+				// opera como fadeOut ou fadeIn dependendo do estado que o elemento se encontra
+				$('#div2').fadeToggle('slow')
+				// fadeTo temos que passar 2 parametros o primeiro é o tempo o segundo é o ponto de opacidade que queremos o elemento q vai de 0 opacidade total e 1 totalmente exibido
+				$('#div2').fadeTo('slow', 0.3)
+				// trazendo de quase invisivel para mais visivel
+				$('#div2').fadeTo('slow', 0.8)
+
+
+				$('#btn2').on('click', () => {
+					$('#div2').fadeToggle(2000)
+				})
+
+				
+				// escorrega o elemento pra cima
+				$('#div3').slideUp('slow')
+				// escorrega o elemento pra baixo
+				$('#div3').slideDown('slow')
+				// faz os dois dependendo do estado que o elemento se encontra
+				$('#div3').slideToggle('slow')
+
+				
+				$('#btn3').on('click', () => {
+					$('#div3').slideToggle('slow')
+				})
+
+			})
+		</script>
+	</head>
+
+	<body>
+		
+		<div class="grupo">
+			<button id="btn1" type="button">DIV 1</button>
+			<div id="div1" class="div div1"></div>
+		</div>
+
+		<div class="grupo">
+			<button id="btn2" type="button">DIV 2</button>
+			<div id="div2" class="div div2"></div>
+		</div>
+
+		<div class="grupo">
+			<button id="btn3" type="button">DIV 3</button>
+			<div id="div3" class="div div3"></div>
+		</div>
+			
+	</body>
+
+</html>
